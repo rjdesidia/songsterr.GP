@@ -1,0 +1,45 @@
+{
+  "name": "songsterr.gp",
+  "version": "1.0",
+  
+  "author": "RJDesidia",
+  "description": "скачивает guitar pro файл с сайта Songsterr",
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "webRequest",
+    "webRequestBlocking",
+    "http://www.songsterr.com/*",
+    "http://songsterr.com/*",
+    "https://www.songsterr.com/*",
+    "https://songsterr.com/*"
+  ],
+  "background": {
+    "scripts": [
+      "songDownloader.js"
+    ]
+  },
+  "browser_action": {
+    "default_title": "songsterr.gp",
+    "default_icon": "icon512.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://www.songsterr.com/a/wa/*",
+        "https://www.songsterr.com/a/wa/*",
+        "http://songsterr.com/a/wa/*",
+        "https://songsterr.com/a/wa/*",
+        "http://www.songsterr.com/a/wsa/*",
+        "https://www.songsterr.com/a/wsa/*",
+        "http://songsterr.com/a/wsa/*",
+        "https://songsterr.com/a/wsa/*",
+        "https://*.cloudfront.net/*"
+      ],
+      "js": [
+        "patchState.js"
+      ]
+    }
+  ],
+  "manifest_version": 2
+}
